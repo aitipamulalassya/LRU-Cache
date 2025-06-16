@@ -158,6 +158,7 @@ button:active {
 
 /* For tablet and below */
 @media (max-width: 1024px) {
+
   .container {
     flex-direction: column;
     padding: 0 15px; /* ✅ add horizontal padding */
@@ -180,7 +181,8 @@ button:active {
   }
 
   .container {
-    padding: 0 10px;  /* ✅ side padding on container */
+    padding: 0 10px; 
+   /* ✅ side padding on container */
   }
 
   .info,
@@ -199,6 +201,9 @@ button:active {
 
 
 @media (max-width: 480px) {
+ body{
+  margin:19px;
+ }
   .header {
     font-size: 22px;
   }
