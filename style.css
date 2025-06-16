@@ -1,13 +1,16 @@
 html {
   background-color: #eeefdd;
 }
-
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #f8f9fa;
   box-shadow: 6px 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 20px 70px;
-  padding: 15px;
+  margin: 20px auto;
+  padding: 20px;
   border-radius: 10px;
+  max-width: 1200px;
 }
 
 .header {
@@ -17,9 +20,14 @@ body {
 
 .container {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
 }
-
+.visualization button {
+  margin: 5px 10px 5px 0; /* top right bottom left */
+}
 .visualization {
   flex: 2;
   padding: 20px;
@@ -33,7 +41,6 @@ input {
   font-size: 16px;
   border: 2px solid #ffc107;
   margin-bottom: 20px; 
-
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -46,7 +53,6 @@ input:focus {
 
 button {
   background-color: #ffc107;
-  
   color: black;
   border: none;
   padding: 10px 20px;
@@ -54,8 +60,8 @@ button {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
- 
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  
 }
 
 button:hover {
@@ -71,15 +77,13 @@ button:active {
 .info {
   flex: 1.25;
   background-color: #fff7e0;
-
   padding: 20px;
-  margin: 10px;
+  margin: 10px 0;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
- 
   border-left: 5px solid #ffc107;
-  
   font-size: small;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info h3 {
@@ -95,7 +99,6 @@ button:active {
 
 .info p {
   color: #333;
-
   font-size: 16px;
   line-height: 1.25;
 }
@@ -122,13 +125,10 @@ button:active {
 }
 
 .cache-status {
-  margin: 25px;
-
+  margin: 25px 0;
   padding: 20px;
-
   border: 3px solid #ffc107;
   border-radius: 8px;
-
   font-size: 18px;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -138,9 +138,7 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  flex-wrap: nowrap;
-
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -150,24 +148,84 @@ button:active {
   font-size: 20px;
   font-weight: bold;
   border: 2px solid #ffc107;
-
   box-shadow: 0 0 8px rgba(224, 168, 0, 0.5);
-} 
+}
 
 
-@media (max-width: 768px) {
+/* ======================
+   ✅ Responsive tweaks
+   ====================== */
+
+/* For tablet and below */
+@media (max-width: 1024px) {
+
   .container {
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.5;
+    flex-direction: column;
+    padding: 0 15px; /* ✅ add horizontal padding */
   }
 
-  .visualization, .info {
-      width: 80%;
-      text-align: center;
+  .info,
+  .visualization {
+    width: 100%;
+    margin: 0 0 20px;  /* bottom spacing between blocks */
+    padding: 20px;     /* keep inner padding */
+  }
+}
+
+/* For phone screens */
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+    padding: 10px;
+    box-shadow: none;
   }
 
-  .cache-items {
-      justify-content: center;
+  .container {
+    padding: 0 10px; 
+   /* ✅ side padding on container */
+  }
+
+  .info,
+  .visualization {
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 15px;
+  }
+
+  input,
+  button {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+ body{
+  margin:19px;
+ }
+  .header {
+    font-size: 22px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .info p,
+  .info ul li {
+    font-size: 14px;
+  }
+
+  .cache-item {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .cache-status {
+    padding: 15px;
+    font-size: 16px;
   }
 }
